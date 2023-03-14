@@ -1,7 +1,7 @@
 function Button(){
     return (
         <div className="Button">
-            <button>Click me</button>
+            <a href="/menu">Go to Portal</a>
         </div>
     );
 }

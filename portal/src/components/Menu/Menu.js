@@ -1,3 +1,6 @@
+import './Menu.css'
+import MenuItem from '../MenuItem/MenuItem'
+
 let menu = [
     {
         "name": "Cheese Pizza",
@@ -26,22 +29,18 @@ let menu = [
 ]
 
 let menuComponents = menu.map(item => {
-    let toppings = "";
-    toppings = item.toppings.map(topping => {
-        return toppings + topping.type + ' ';
-    })
-    return (
-    <div>
-        <h3>{item.name}</h3>
-        <h4>Price: ${item.price}</h4>
-        <h4>Toppings: {toppings}</h4>
-    </div>
-    );
+    let itemProps = {
+        "name": item.name,
+        "price": item.price,
+        "toppings": item.toppings
+    };
+    return (<MenuItem {...itemProps} />);
 })
 
 export default function Menu(){
     return(
         <div className="menu">
+            {menuComponents}
             {menuComponents}
         </div>
     )

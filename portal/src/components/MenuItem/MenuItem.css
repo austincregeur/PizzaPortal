@@ -1,0 +1,19 @@
+:root {
+    --main-dark : #1e1e1e;
+}
+
+.menu-item{
+    background-color: var(--main-dark);
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.item-name {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.item-image {
+    width: 425px;
+    height: auto;
+}
