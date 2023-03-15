@@ -1,10 +1,16 @@
 :root {
     --main-dark : #1e1e1e;
 }
+.item-name,
+.item-price,
+.item-description {
+    margin: 0;
+    padding: 0.5rem;
+}
 
 .menu-item{
-    background-color: var(--main-dark);
-    color: white;
+    background-color: #F5F5F5;
+    color: black;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
@@ -13,7 +19,64 @@
     font-weight: bolder;
 }
 
+.item-price {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
 .item-image {
     width: 425px;
     height: auto;
+}
+/* Adding pizza to Item Form */
+.form-item {
+    padding: 0.25rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.size-section input{
+    display: none;
+}
+
+.size-section label{
+    margin: 0.5rem;
+    padding: 0.4rem;
+    border: 1px solid red;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.size-section label:hover{
+    color: white;
+    background-color: red;
+    
+}
+
+input:checked + label{
+    color: white;
+    background-color: red;
+}
+
+.pizza-amount,
+.add-button {
+    border: none;
+    background-color:red;
+    color: white;
+    font-weight:900;
+    font-size: 1.25rem;
+}
+.pizza-amount{
+    border-right: 2px solid red;
+}
+.pizza-amount:focus {
+    outline: none;
+}
+
+.submit-section {
+    width:fit-content;
+    border: 2px solid red;
+    border-radius: 50px 0 0 50px;
+    overflow: hidden;
+    background-color:red;
+    margin: 10px;
 }

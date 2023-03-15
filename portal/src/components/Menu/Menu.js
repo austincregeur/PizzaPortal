@@ -1,5 +1,6 @@
 import './Menu.css'
 import MenuItem from '../MenuItem/MenuItem'
+import Nav from '../Nav/Nav'
 
 let menu = [
     {
@@ -39,9 +40,12 @@ let menuComponents = menu.map(item => {
 
 export default function Menu(){
     return(
+        <>
+        <Nav />
         <div className="menu">
             {menuComponents}
             {menuComponents}
         </div>
+        </>
     )
 }

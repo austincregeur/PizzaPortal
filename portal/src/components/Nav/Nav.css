@@ -1,0 +1,15 @@
+nav {
+    display: flex;
+    justify-content:flex-end;
+    padding: 10px;
+    background-color: white;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: relative;
+    z-index: 10;
+}
+li {
+    list-style: none;
+    padding: 10px;
+}
