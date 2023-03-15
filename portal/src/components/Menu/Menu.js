@@ -1,6 +1,7 @@
 import './Menu.css'
 import MenuItem from '../MenuItem/MenuItem'
 import Nav from '../Nav/Nav'
+import { useState } from 'react'
 
 let menu = [
     {
@@ -29,19 +30,29 @@ let menu = [
     },
 ]
 
-let menuComponents = menu.map(item => {
-    let itemProps = {
-        "name": item.name,
-        "price": item.price,
-        "toppings": item.toppings
-    };
-    return (<MenuItem {...itemProps} />);
-})
+
 
 export default function Menu(){
+
+    let [cart, setCart] = useState(0)
+
+    function updateCart(e){
+        e.preventDefault();
+        setCart(cart + 1);
+    }
+
+    let menuComponents = menu.map(item => {
+        let itemProps = {
+            "name": item.name,
+            "price": item.price,
+            "toppings": item.toppings
+        };
+        return (<MenuItem item={itemProps} updateCart={updateCart}/>);
+    })
+
     return(
         <>
-        <Nav />
+        <Nav cart={cart}/>
         <div className="menu">
             {menuComponents}
             {menuComponents}

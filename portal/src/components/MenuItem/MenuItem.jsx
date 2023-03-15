@@ -1,7 +1,7 @@
 import cheeseImage from './cheese.jpeg';
 import './MenuItem.css'
 
-export default function MenuItem(item){
+export default function MenuItem({item, updateCart}){
     console.log(item);
     return (
         <div className="menu-item">
@@ -27,7 +27,7 @@ export default function MenuItem(item){
                 <option value="four">4</option>
                 <option value="five">5</option>
             </select>
-            <button className="form-item add-button" type="submit">Add to Order</button>
+            <button className="form-item add-button" onClick={updateCart}>Add to Order</button>
             </div>
             </form>
             <p className="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi temporibus veritatis libero illo tempore, reiciendis magnam quia neque iste officia nulla voluptate aliquam distinctio, eaque dolorum maxime eum recusandae quibusdam.</p>

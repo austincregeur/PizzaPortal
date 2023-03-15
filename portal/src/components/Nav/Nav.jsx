@@ -1,12 +1,18 @@
 import './Nav.css'
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import Badge from "@material-ui/core/Badge";
+import { useState } from 'react';
 
-export default function Nav() {
+export default function Nav({cart}) {    
+
     return (
         <nav>
             <li>Home</li>
             <li>Menu</li>
             <li>Contact</li>
-            <li>Cart</li>
+            <Badge color="secondary" badgeContent={cart}>
+            <ShoppingCartIcon />{" "}
+            </Badge>
         </nav>
     );
 }
