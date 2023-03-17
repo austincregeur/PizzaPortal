@@ -34,19 +34,25 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.size-section input{
+.form-section {
+    margin: 1rem;
+    display: flex;
+}
+
+.form-section input{
     display: none;
 }
 
-.size-section label{
-    margin: 0.5rem;
+.form-section label{
+    display: inline-block;
+    margin: 0;
     padding: 0.4rem;
     border: 1px solid red;
-    border-radius: 50px;
     font-weight: bold;
+
 }
 
-.size-section label:hover{
+.form-section label:hover{
     color: white;
     background-color: red;
     

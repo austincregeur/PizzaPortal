@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 let menu = [
     {
+        "id": 0,
         "name": "Cheese Pizza",
         "price": 9.99,
         "toppings": [
@@ -15,6 +16,7 @@ let menu = [
         ]
     },
     {
+        "id": 1,
         "name": "Pepperoni Pizza",
         "price": 10.99,
         "toppings": [
@@ -38,11 +40,13 @@ export default function Menu(){
 
     function updateCart(e){
         e.preventDefault();
+        console.log(e)
         setCart(cart + 1);
     }
 
     let menuComponents = menu.map(item => {
         let itemProps = {
+            "id": item.id,
             "name": item.name,
             "price": item.price,
             "toppings": item.toppings
