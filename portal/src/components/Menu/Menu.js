@@ -35,9 +35,7 @@ let menu = [
 
 
 export default function Menu(){
-
     let [cart, setCart] = useState(0)
-
     function updateCart(e){
         e.preventDefault();
         console.log(e)

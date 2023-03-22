@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './components/App/App';
 import Menu from './components/Menu/Menu';
+import Checkout from './components/Checkout/Checkout';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -10,7 +11,6 @@ import {
 
 import {Provider} from 'react-redux';
 import store from './redux/store';
-
 
 const router = createBrowserRouter([
   {
@@ -20,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/menu",
     element: <Menu />
+  },
+  {
+    path: "/checkout",
+    element: <Checkout />
   }
 ]);
 

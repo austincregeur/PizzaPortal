@@ -1,7 +1,9 @@
 import './PizzaForm.css';
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 export default function PizzaForm(){
+
     const [order, setOrder] = useState([]);
 
     function handleNewOrder(e){
@@ -66,6 +68,14 @@ export default function PizzaForm(){
                 <br />
                 <span>Special Notes:</span>
                 <button onClick={handleNewOrder}>Add to Order</button>
+
+                {order.map(item => {
+                    return (<div>
+                        <span>Pizza: {item.type}, Size: {item.size}, Crust: {item.crust}</span>
+                    </div>)
+                })}
+
+                <Link to="checkout" state={order}>Go to Menu</Link>
             </form>
         </div>
     )
