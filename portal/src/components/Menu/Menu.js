@@ -2,35 +2,8 @@ import './Menu.css'
 import MenuItem from '../MenuItem/MenuItem'
 import Nav from '../Nav/Nav'
 import { useState } from 'react'
+import {menuData} from './menuData.js'
 
-let menu = [
-    {
-        "id": 0,
-        "name": "Cheese Pizza",
-        "price": 9.99,
-        "toppings": [
-            {
-                "type": "Cheese",
-                "covers": "all"
-            }
-        ]
-    },
-    {
-        "id": 1,
-        "name": "Pepperoni Pizza",
-        "price": 10.99,
-        "toppings": [
-            {
-                "type": "Cheese",
-                "covers": "all"
-            },
-            {
-                "type": "Pepperoni",
-                "covers": "all"
-            }
-        ]
-    },
-]
 
 
 
@@ -42,7 +15,7 @@ export default function Menu(){
         setCart(cart + 1);
     }
 
-    let menuComponents = menu.map(item => {
+    let menuComponents = menuData.map(item => {
         let itemProps = {
             "id": item.id,
             "name": item.name,
@@ -51,6 +24,7 @@ export default function Menu(){
         };
         return (<MenuItem item={itemProps} updateCart={updateCart}/>);
     })
+    console.log(menuData)
 
     return(
         <>

@@ -27,6 +27,7 @@ export default function PizzaForm(){
         for(let i = 0; i < sizes.length; i++){
             if(sizes[i].checked){
                 value = sizes[i].id;
+                sizes[i].checked = false
                 break;
             }
         }
@@ -46,20 +47,20 @@ export default function PizzaForm(){
 
                 <br />
                 <span>Size:</span>
-                <label for="small">Small</label>
+                <label htmlFor="small">Small</label>
                 <input type="radio" id="small" name="size"></input>
-                <label for="medium">Medium</label>
+                <label htmlFor="medium">Medium</label>
                 <input type="radio" id="medium" name="size"></input>
-                <label for="large">Large</label>
+                <label htmlFor="large">Large</label>
                 <input type="radio" id="large" name="size"></input>
 
                 <br />
                 <span>Crust:</span>
-                <label for="original">Original</label>
+                <label htmlFor="original">Original</label>
                 <input type="radio" id="original" name="crust"></input>
-                <label for="thin">Thin</label>
+                <label htmlFor="thin">Thin</label>
                 <input type="radio" id="thin" name="crust"></input>
-                <label for="deep-dish">Deep Dish</label>
+                <label htmlFor="deep-dish">Deep Dish</label>
                 <input type="radio" id="deep-dish" name="crust"></input>
 
                 <br />
@@ -69,14 +70,13 @@ export default function PizzaForm(){
                 <span>Special Notes:</span>
                 <button onClick={handleNewOrder}>Add to Order</button>
 
-                {order.map(item => {
-                    return (<div>
-                        <span>Pizza: {item.type}, Size: {item.size}, Crust: {item.crust}</span>
-                    </div>)
-                })}
-
-                <Link to="checkout" state={order}>Go to Menu</Link>
+                <Link to="/checkout" state={order}>Checkout</Link>
             </form>
+            {order && order.map(order => {
+                return (
+                    <p>Pizza: {order.type} Size: {order.size} Crust: {order.crust}</p>
+                )
+            })}
         </div>
     )
 }
