@@ -1,20 +1,19 @@
+//Menu Page
 import './Menu.css'
 import MenuItem from '../MenuItem/MenuItem'
 import Nav from '../Nav/Nav'
-import { useState } from 'react'
 import {menuData} from './menuData.js'
+import { useLocation } from 'react-router-dom'
 
 
 
 
 export default function Menu(){
-    let [cart, setCart] = useState(0)
-    function updateCart(e){
-        e.preventDefault();
-        console.log(e)
-        setCart(cart + 1);
-    }
 
+    let location = useLocation()
+    let order = location.state
+
+    //Creating a Menu Item Component for each item on Menu
     let menuComponents = menuData.map(item => {
         let itemProps = {
             "id": item.id,
@@ -22,13 +21,12 @@ export default function Menu(){
             "price": item.price,
             "toppings": item.toppings
         };
-        return (<MenuItem item={itemProps} updateCart={updateCart}/>);
+        return (<MenuItem item={itemProps}/>);
     })
-    console.log(menuData)
 
     return(
         <>
-        <Nav cart={cart}/>
+        <Nav order={order}/>
         <div className="menu">
             {menuComponents}
             {menuComponents}
