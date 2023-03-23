@@ -2,8 +2,12 @@ import './PizzaForm.css';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import Nav from '../Nav/Nav';
+import { useLocation } from 'react-router-dom';
+import {menuData} from '../Menu/menuData.js'
 
-export default function PizzaForm({currOrder}){
+export default function PizzaForm(){
+    let location = useLocation()
+    let currOrder = location.state
     let initialOrder
     if(currOrder){
         initialOrder = currOrder
@@ -11,26 +15,57 @@ export default function PizzaForm({currOrder}){
         initialOrder = []
     }
     const [order, setOrder] = useState(initialOrder);
+
+    let crustPrice = {
+        Thin: 0,
+        Original: 0,
+        "Deep-Dish": 2
+    }
+
+    let sizeMultiplier = {
+        Small: 0.5,
+        Medium: 1,
+        Large: 1.5
+    }
+
+    let extraPrice = {
+        "extra-cheese": 1.5,
+        "sausage": 1,
+        "veg": 0.5,
+        "chicken": 2,
+        "bacon": 1.5
+    }
+
     function handleNewOrder(e){
         e.preventDefault();
         //Getting From Data
-        let pizzaType = document.getElementById("pizzaType").value
+        let pizzaTypeID = document.getElementById("pizzaType").value
+        let menuPizza = menuData[pizzaTypeID]
+        let pizzaType = menuPizza.name
         let sizeOptions = document.getElementsByName("size")
         let crustOptions = document.getElementsByName("crust")
         let extraOptions = document.getElementsByName("extra-ingredients")
         let size = findChoice(sizeOptions);
+        let price = Math.floor(menuPizza.price * sizeMultiplier[size] * 100) / 100
         let crust = findChoice(crustOptions)
+        price += crustPrice[crust]
         let extras = findChoices(extraOptions)
+        extras.forEach(extra => {
+            price += extraPrice[extra]
+        })
         //Creating Pizza Object from Form Data
         let pizza = {
             type: pizzaType,
             size: size,
             crust: crust,
-            extras: extras
+            extras: extras,
+            price: price
         }
         //Adding Pizza Object to order state
         setOrder([...order, pizza])
     }
+
+
 
     //Function to find which option was selected from radio buttons
     function findChoice(sizes){
@@ -52,9 +87,19 @@ export default function PizzaForm({currOrder}){
                 options[i].checked = false
             }
         }
-        console.log(value)
         return value
     }
+
+    function resetOrder() {
+        setOrder([]);
+    }
+
+    function removeOrderItem(index){
+        let state = order.slice();//Need the slice, something with references and react doesn't think state has changed so it doesn't rerender w/out it
+        state.splice(index,1)
+        setOrder(state)
+    }
+
     
     return (
         <>
@@ -64,28 +109,28 @@ export default function PizzaForm({currOrder}){
             <form className="pizza-form">
                 <span>Select Pizza:</span>
                 <select id="pizzaType">
-                    <option value="Pepperoni">Pepperoni</option>
-                    <option value="Cheese">Cheese</option>
-                    <option value="Hawaian">Hawaian</option>
+                    {menuData && menuData.map(item => {
+                        return <option value={item.id}>{item.name}</option>
+                    })}
                 </select>
 
                 <br />
                 <span>Size:</span>
-                <label htmlFor="small">Small</label>
-                <input type="radio" id="small" name="size"></input>
-                <label htmlFor="medium">Medium</label>
-                <input type="radio" id="medium" name="size" checked></input>
-                <label htmlFor="large">Large</label>
-                <input type="radio" id="large" name="size"></input>
+                <label htmlFor="Small">Small</label>
+                <input type="radio" id="Small" name="size"></input>
+                <label htmlFor="Medium">Medium</label>
+                <input type="radio" id="Medium" name="size" checked></input>
+                <label htmlFor="Large">Large</label>
+                <input type="radio" id="Large" name="size"></input>
 
                 <br />
                 <span>Crust:</span>
-                <label htmlFor="original">Original</label>
-                <input type="radio" id="original" name="crust" checked></input>
-                <label htmlFor="thin">Thin</label>
-                <input type="radio" id="thin" name="crust"></input>
+                <label htmlFor="Original">Original</label>
+                <input type="radio" id="Original" name="crust" checked></input>
+                <label htmlFor="Thin">Thin</label>
+                <input type="radio" id="Thin" name="crust"></input>
                 <label htmlFor="deep-dish">Deep Dish</label>
-                <input type="radio" id="deep-dish" name="crust"></input>
+                <input type="radio" id="Deep-Dish" name="crust"></input>
 
                 <br />
                 <span>Add Ingredients</span>
@@ -106,11 +151,15 @@ export default function PizzaForm({currOrder}){
                 <span>Special Notes:</span>
                 <button onClick={handleNewOrder}>Add to Order</button>
 
-                <Link to="/checkout" state={order}>Checkout</Link>
+                <Link to="/checkout" state={order}><button>Checkout</button></Link>
+                <button onClick={resetOrder}>Reset Order</button>
             </form>
-            {order && order.map(order => {
+            {order && order.map((orderItem, index) => {
                 return (
-                    <p>Pizza: {order.type} Size: {order.size} Crust: {order.crust}, Add-ons: {order.extras}</p>
+                    <>
+                    <p id={index+1}>{index+1} Pizza: {orderItem.type} Size: {orderItem.size} Crust: {orderItem.crust}, Add-ons: {orderItem.extras.map(extra => {return <span>{extra} </span>})} Price: {orderItem.price}</p>
+                    <button onClick={() => removeOrderItem(index)}>Remove</button>
+                    </>
                 )
             })}
         </div>

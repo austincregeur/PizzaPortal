@@ -3,7 +3,7 @@ import './MenuItem.css'
 
 export default function MenuItem({item}){
     return (
-        <div className="menu-item">
+        <div className="menu-item" id={item.id}>
             <p className="item-name">{item.name}</p>
             <p className="item-price">Price: ${item.price}</p>
             <p className="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi temporibus veritatis libero illo tempore, reiciendis magnam quia neque iste officia nulla voluptate aliquam distinctio, eaque dolorum maxime eum recusandae quibusdam.</p>

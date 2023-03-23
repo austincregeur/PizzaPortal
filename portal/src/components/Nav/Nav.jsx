@@ -14,9 +14,13 @@ export default function Nav({order}) {
 
             <li><Link to="/order" state={order}>Order</Link></li>
             
-            <Badge overlap="rectangular" color="secondary" badgeContent={order && order.length}>
-            <ShoppingCartIcon />{" "}
-            </Badge>
+            <li>
+            <Link to="/checkout" state={order}>
+                <Badge overlap="rectangular" color="secondary" badgeContent={order && order.length}>
+                <ShoppingCartIcon />{" "}
+                </Badge>
+            </Link>
+            </li>
         </nav>
     );
 }

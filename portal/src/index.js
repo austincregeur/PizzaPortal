@@ -5,7 +5,7 @@ import './index.css';
 import Home from './components/Home/Home';
 import Menu from './components/Menu/Menu';
 import Checkout from './components/Checkout/Checkout';
-import Order from './components/Order/Order';
+import PizzaForm from './components/PizzaForm/PizzaForm';
 //React-Router
 import {
   createBrowserRouter,
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/order",
-    element: <Order />
+    element: <PizzaForm />
   }
 ]);
 
