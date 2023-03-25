@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PizzaPortal/static/css/main.dc1abb37.css",
-    "main.js": "/PizzaPortal/static/js/main.d36de26e.js",
+    "main.js": "/PizzaPortal/static/js/main.3aa48037.js",
     "static/media/bbq.jpeg": "/PizzaPortal/static/media/bbq.d851bce159fbeab59ccd.jpeg",
     "static/media/hawaiian.jpeg": "/PizzaPortal/static/media/hawaiian.c2f6f901cc62d9e5bc6d.jpeg",
     "static/media/supreme.webp": "/PizzaPortal/static/media/supreme.3a6578d67c3a8b0ad4ca.webp",
@@ -10,10 +10,10 @@
     "static/media/pepperoni.webp": "/PizzaPortal/static/media/pepperoni.8c3695b8c1147d67f489.webp",
     "index.html": "/PizzaPortal/index.html",
     "main.dc1abb37.css.map": "/PizzaPortal/static/css/main.dc1abb37.css.map",
-    "main.d36de26e.js.map": "/PizzaPortal/static/js/main.d36de26e.js.map"
+    "main.3aa48037.js.map": "/PizzaPortal/static/js/main.3aa48037.js.map"
   },
   "entrypoints": [
     "static/css/main.dc1abb37.css",
-    "static/js/main.d36de26e.js"
+    "static/js/main.3aa48037.js"
   ]
 }
