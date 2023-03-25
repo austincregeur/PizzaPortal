@@ -1,13 +1,19 @@
 import cheeseImage from './cheese.jpeg';
+import pepperoniImage from './pepperoni.webp'
+import hawaiianImage from './hawaiian.jpeg'
+import bbqImage from './bbq.jpeg'
+import meatImage from './meat.jpeg'
+import supremeImage from './supreme.webp'
 import './MenuItem.css'
 
 export default function MenuItem({item}){
+    let images = [cheeseImage, pepperoniImage, hawaiianImage, bbqImage, meatImage, supremeImage]
     return (
         <div className="menu-item" id={item.id}>
             <p className="item-name">{item.name}</p>
             <p className="item-price">Price: ${item.price}</p>
-            <p className="item-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi temporibus veritatis libero illo tempore, reiciendis magnam quia neque iste officia nulla voluptate aliquam distinctio, eaque dolorum maxime eum recusandae quibusdam.</p>
-            <img className='item-image' src={cheeseImage} alt="pizza"></img>
+            <p className="item-description">{item.description}</p>
+            <img className='item-image' src={images[item.id]} alt="pizza"></img>
         </div>
     );
 }

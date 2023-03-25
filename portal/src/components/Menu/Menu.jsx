@@ -15,20 +15,13 @@ export default function Menu(){
 
     //Creating a Menu Item Component for each item on Menu
     let menuComponents = menuData.map(item => {
-        let itemProps = {
-            "id": item.id,
-            "name": item.name,
-            "price": item.price,
-            "toppings": item.toppings
-        };
-        return (<MenuItem item={itemProps}/>);
+        return (<MenuItem item={item}/>);
     })
 
     return(
         <>
         <Nav order={order}/>
         <div className="menu">
-            {menuComponents}
             {menuComponents}
         </div>
         </>

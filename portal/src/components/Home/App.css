@@ -1,4 +1,25 @@
 .App {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
 
+.App h1{
+    font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #D55B43;
+  text-shadow: 2px 2px #FDF6E3;
+}
+
+.App .homepage {
+    width: 80%;
+    font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #444444;
+  margin-top: 20px;
 }
 

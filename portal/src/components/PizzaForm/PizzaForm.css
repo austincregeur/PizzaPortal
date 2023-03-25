@@ -1,0 +1,138 @@
+.pizza-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pizza-form {
+    display: flex;
+}
+
+.pizza-form-item {
+    padding: 0.5rem;
+    border: 1px solid black;
+    margin: 0;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+}
+
+.field-header {
+    font-size: 2rem;
+    padding: .5rem;
+}
+
+.pizza-select{
+   width: 150px;
+   height: 35px;
+   font-size: 1rem;
+}
+
+.add-ingred {
+    flex-wrap: wrap;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    display: none;
+}
+
+input:checked + .pizza-form-item {
+    background-color: red;
+    color: white;
+}
+
+.pizza-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pizza-form div{
+    margin: 1rem;
+}
+
+.form-button {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+#checkout-button {
+    background-color: lightgreen;
+}
+
+#reset-button {
+    background-color: red;
+    color: white;
+}
+
+.order-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
+
+.order-item{
+    width: 80%;
+    align-self: center;
+    font-size: 1.5rem;
+    font-weight: 250;
+    border: 2px solid #808080;
+    display: flex;
+    align-items: center;
+    transition: all .2s ease-in-out;
+}
+
+.order-item:hover{
+    background-color: gainsboro;
+}
+
+.order-item button{
+    margin-left: auto;
+}
+
+.order-item-price {
+    font-size: 1.75rem;
+    font-weight: normal;
+}
+
+.item-container{
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+#remove-order-item-button {
+    background-color: white;
+    border: solid 3px red;
+    border-radius: 10px;
+    padding: 0.25rem;
+    font-size: 0.75rem;
+    transition: all .2s ease-in-out;
+}
+
+#remove-order-item-button:hover {
+    transform: scale(1.25);
+}
+
+.summary-header{
+    align-self: center;
+}
+
+.total-price {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.order-summary-footer {
+    border: 2px solid #808080;
+    align-self: center;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
